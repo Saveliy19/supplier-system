@@ -55,4 +55,16 @@ public class DeliveryServiceImplementation implements DeliveryService {
         result.setSupplierId(deliveryDTO.supplierId());
         return result;
     }
+
+    @Override
+    public void validateProductsUnique(CreateDeliveryDTO deliveryDTO) {
+        boolean hasDuplicates = deliveryDTO.deliveryItems().stream()
+                .map(CreateDeliveryItemDTO::productId)
+                .distinct()
+                .count() != deliveryDTO.deliveryItems().size();
+
+        if (hasDuplicates) {
+            throw new IllegalArgumentException("There are several products with the same Id in the list.");
+        }
+    }
 }

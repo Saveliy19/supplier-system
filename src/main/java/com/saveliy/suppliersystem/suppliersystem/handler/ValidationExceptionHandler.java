@@ -25,5 +25,13 @@ public class ValidationExceptionHandler {
         errors.put("errors", errorMessages);
         return ResponseEntity.badRequest().body(errors);
     }
+
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    public ResponseEntity<Map<String, Object>> handleValidationException(IllegalArgumentException ex) {
+        Map<String, Object> errors = new HashMap<>();
+        errors.put("status", HttpStatus.BAD_REQUEST.value());
+        errors.put("error", ex.getMessage());
+        return ResponseEntity.badRequest().body(errors);
+    }
 }
 

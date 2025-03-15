@@ -24,6 +24,7 @@ public class DeliveryController {
 
     @PostMapping
     public ResponseEntity<DeliveryDTO> createDelivery(@RequestBody CreateDeliveryDTO deliveryDTO) {
+        deliveryService.validateProductsUnique(deliveryDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(deliveryService.createDelivery(deliveryDTO));
     }
 }

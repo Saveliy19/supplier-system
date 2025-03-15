@@ -5,4 +5,6 @@ import com.saveliy.suppliersystem.suppliersystem.dto.delivery.DeliveryDTO;
 
 public interface DeliveryService {
     public DeliveryDTO createDelivery(CreateDeliveryDTO deliveryDTO);
+
+    public void validateProductsUnique(CreateDeliveryDTO deliveryDTO);
 }
