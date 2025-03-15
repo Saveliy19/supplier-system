@@ -2,6 +2,7 @@ package com.saveliy.suppliersystem.suppliersystem.handler;
 
 import com.saveliy.suppliersystem.suppliersystem.exception.OverlappingPriceException;
 import com.saveliy.suppliersystem.suppliersystem.exception.ResourceAlreadyExistsException;
+import com.saveliy.suppliersystem.suppliersystem.exception.ResourceNotExistsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -29,4 +30,10 @@ public class DBExceptionsHandler {
                 .collect(Collectors.toList());
         return ResponseEntity.badRequest().body("Price period overlaps with existing prices:\n" + String.join("\n", conflicts));
     }
+
+    @ExceptionHandler(ResourceNotExistsException.class)
+    public ResponseEntity<String> resourceNotExistsException(ResourceNotExistsException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+    }
+
 }

@@ -12,7 +12,7 @@ import lombok.Setter;
 @Table(name = "delivery_items")
 public class DeliveryItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "weight_kg")
@@ -22,11 +22,7 @@ public class DeliveryItem {
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "price_id")
     private Price price;
 }

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -19,8 +20,8 @@ public class Delivery {
     private int id;
 
     @Column(name = "delivery_date", nullable = false)
-    private Date delivery_date;
+    private LocalDate deliveryDate;
 
-    @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<DeliveryItem> deliveryItems;
 }

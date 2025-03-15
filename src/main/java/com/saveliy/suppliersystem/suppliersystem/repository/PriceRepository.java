@@ -21,5 +21,10 @@ public interface PriceRepository extends JpaRepository<Price, Integer> {
             "AND :date BETWEEN p.startDate AND p.endDate")
     List<Price> findAllByProductIdAndDateBetween(int productId, LocalDate date);
 
+    @Query("SELECT p FROM Price p WHERE p.product.id = :productId AND p.supplier.id = :supplierId AND :date BETWEEN p.startDate AND p.endDate")
+    Price findByProductIdAndSupplierIdAndDate(int productId, int supplierId, LocalDate date);
+
+
+
 }
 
