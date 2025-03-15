@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class SupplierServiceImplementation implements SupplierService {
 
-    private SupplierRepository supplierRepository;
+    private final SupplierRepository supplierRepository;
 
     @Autowired
     public SupplierServiceImplementation(SupplierRepository repository) {
@@ -25,15 +25,9 @@ public class SupplierServiceImplementation implements SupplierService {
     @Override
     @Transactional
     public SupplierDTO addSupplier(CreateSupplierDTO supplierDTO) {
-        try {
-            return SupplierMapper.INSTANCE.SupplierToSupplierDTO(
-                    supplierRepository.saveAndFlush(
-                            SupplierMapper.INSTANCE.CreateSupplierToSupplier(supplierDTO)
-                    )
-            );
-        } catch (DataIntegrityViolationException e) {
-            throw new ResourceAlreadyExistsException("Supplier already exists");
-        }
+        return SupplierMapper.INSTANCE.SupplierToSupplierDTO(
+                supplierRepository.saveAndFlush(
+                        SupplierMapper.INSTANCE.CreateSupplierToSupplier(supplierDTO)));
     }
 
     @Override

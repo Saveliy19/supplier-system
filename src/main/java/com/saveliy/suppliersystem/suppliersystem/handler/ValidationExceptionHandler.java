@@ -15,12 +15,15 @@ import java.util.Map;
 public class ValidationExceptionHandler {
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handleValidationException(MethodArgumentNotValidException ex) {
-        Map<String, Object> errors = new HashMap<String, Object>();
+        Map<String, Object> errors = new HashMap<>();
         errors.put("status", HttpStatus.BAD_REQUEST.value());
 
-        List<String> errorMessages = Arrays.asList(ex.getBindingResult().getSuppressedFields());
+        List<String> errorMessages = ex.getBindingResult().getFieldErrors().stream()
+                .map(error -> error.getField() + ": " + error.getDefaultMessage())
+                .toList();
 
         errors.put("errors", errorMessages);
         return ResponseEntity.badRequest().body(errors);
     }
 }
+
