@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -36,5 +37,21 @@ public class PriceServiceImplementation implements PriceService {
         return PriceMapper.INSTANCE.PriceToPriceDTO(priceRepository.saveAndFlush(
                 PriceMapper.INSTANCE.CreatePriceDTOtoPrice(priceDTO)
         ));
+    }
+
+    @Override
+    @Transactional
+    public List<PriceDTO> getProductPricesByDate(int productId, LocalDate localDate) {
+        return PriceMapper.INSTANCE.PriceListToPriceDTOList(
+                priceRepository.findAllByProductIdAndDateBetween(productId, localDate)
+        );
+    }
+
+    @Override
+    @Transactional
+    public List<PriceDTO> getSupplierPricesByDate(int supplierId, LocalDate localDate) {
+        return PriceMapper.INSTANCE.PriceListToPriceDTOList(
+                priceRepository.findAllBySupplierIdAndDateBetween(supplierId, localDate)
+        );
     }
 }
