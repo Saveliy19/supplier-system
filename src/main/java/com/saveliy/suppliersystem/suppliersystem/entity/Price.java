@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,10 +22,10 @@ public class Price {
     private double price;
 
     @Column(name = "start_date", nullable = false)
-    private Date start_date;
+    private LocalDate startDate;
 
     @Column(name = "end_date", nullable = false)
-    private Date end_date;
+    private LocalDate endDate;
 
     @ManyToOne
     @JoinColumn(name = "supplier_id")

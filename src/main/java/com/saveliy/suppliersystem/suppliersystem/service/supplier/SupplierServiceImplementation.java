@@ -1,12 +1,10 @@
-package com.saveliy.suppliersystem.suppliersystem.service;
+package com.saveliy.suppliersystem.suppliersystem.service.supplier;
 
-import com.saveliy.suppliersystem.suppliersystem.exception.ResourceAlreadyExistsException;
 import com.saveliy.suppliersystem.suppliersystem.repository.SupplierRepository;
-import com.saveliy.suppliersystem.suppliersystem.dto.CreateSupplierDTO;
-import com.saveliy.suppliersystem.suppliersystem.dto.SupplierDTO;
+import com.saveliy.suppliersystem.suppliersystem.dto.supplier.CreateSupplierDTO;
+import com.saveliy.suppliersystem.suppliersystem.dto.supplier.SupplierDTO;
 import com.saveliy.suppliersystem.suppliersystem.mapper.SupplierMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,8 +1,8 @@
 package com.saveliy.suppliersystem.suppliersystem.controller;
 
-import com.saveliy.suppliersystem.suppliersystem.dto.CreateProductDTO;
-import com.saveliy.suppliersystem.suppliersystem.dto.ProductDTO;
-import com.saveliy.suppliersystem.suppliersystem.service.ProductService;
+import com.saveliy.suppliersystem.suppliersystem.dto.product.CreateProductDTO;
+import com.saveliy.suppliersystem.suppliersystem.dto.product.ProductDTO;
+import com.saveliy.suppliersystem.suppliersystem.service.product.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

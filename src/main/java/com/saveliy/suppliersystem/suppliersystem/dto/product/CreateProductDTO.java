@@ -1,4 +1,4 @@
-package com.saveliy.suppliersystem.suppliersystem.dto;
+package com.saveliy.suppliersystem.suppliersystem.dto.product;
 
 import jakarta.validation.constraints.NotBlank;
 

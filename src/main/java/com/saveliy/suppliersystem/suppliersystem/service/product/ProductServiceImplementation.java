@@ -1,7 +1,7 @@
-package com.saveliy.suppliersystem.suppliersystem.service;
+package com.saveliy.suppliersystem.suppliersystem.service.product;
 
-import com.saveliy.suppliersystem.suppliersystem.dto.CreateProductDTO;
-import com.saveliy.suppliersystem.suppliersystem.dto.ProductDTO;
+import com.saveliy.suppliersystem.suppliersystem.dto.product.CreateProductDTO;
+import com.saveliy.suppliersystem.suppliersystem.dto.product.ProductDTO;
 import com.saveliy.suppliersystem.suppliersystem.mapper.ProductMapper;
 import com.saveliy.suppliersystem.suppliersystem.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

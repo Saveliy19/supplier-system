@@ -1,7 +1,7 @@
 package com.saveliy.suppliersystem.suppliersystem.mapper;
 
-import com.saveliy.suppliersystem.suppliersystem.dto.CreateSupplierDTO;
-import com.saveliy.suppliersystem.suppliersystem.dto.SupplierDTO;
+import com.saveliy.suppliersystem.suppliersystem.dto.supplier.CreateSupplierDTO;
+import com.saveliy.suppliersystem.suppliersystem.dto.supplier.SupplierDTO;
 import com.saveliy.suppliersystem.suppliersystem.entity.Supplier;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
