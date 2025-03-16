@@ -22,7 +22,7 @@ public class DeliveryItem {
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "price_id")
     private Price price;
 }
