@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface DeliveryRepository extends JpaRepository<Delivery, Integer> {
-    @Query("SELECT NEW com.saveliy.suppliersystem.suppliersystem.entity.dto.SupplierProductSummary(" +
+    @Query("SELECT NEW com.saveliy.suppliersystem.entity.dto.SupplierProductSummary(" +
             "s.id, s.name, p.id, p.name, SUM(di.weight), SUM(di.weight * pr.price)) " +
             "FROM Delivery d " +
             "JOIN d.deliveryItems di " +
